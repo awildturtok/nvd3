@@ -18,6 +18,8 @@ nv.models.bulletChart = function() {
         , ranges = function(d) { return d.ranges }
         , markers = function(d) { return d.markers ? d.markers : [] }
         , measures = function(d) { return d.measures }
+        , title = function(d) { return d.title; }
+        , subtitle = function(d) { return d.subtitle; }
         , width = null
         , height = 55
         , tickFormat = null
@@ -86,12 +88,12 @@ nv.models.bulletChart = function() {
                 .attr('transform', 'translate(-6,' + (height - margin.top - margin.bottom) / 2 + ')');
             title.append('text')
                 .attr('class', 'nv-title')
-                .text(function(d) { return d.title; });
+                .text(title);
 
             title.append('text')
                 .attr('class', 'nv-subtitle')
                 .attr('dy', '1em')
-                .text(function(d) { return d.subtitle; });
+                .text(subtitle);
 
             bullet
                 .width(availableWidth)
